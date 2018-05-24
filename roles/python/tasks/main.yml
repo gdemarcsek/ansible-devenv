@@ -1,29 +1,3 @@
-- name: Check if pyenv is installed and up to date
-  shell: 'pyenv --version | grep "{{ pyenv.version }}"'
-  register: pyenv_installed
-  ignore_errors: yes
-
-- name: Install pyenv if needed
-  when: pyenv_installed.rc != 0
-  git:
-    repo: git@github.com:pyenv/pyenv.git
-    dest: ~/.pyenv
-    version: v{{ pyenv.version }}
-
-- name: Install pyenv-virtualenv
-  git:
-    repo: git@github.com:pyenv/pyenv-virtualenv.git
-    dest: ~/.pyenv/plugins/pyenv-virtualenv
-    version: v1.0.0
-
-- name: Install dependencies for building Pythons via pyenv
-  become: true
-  apt:
-    name: "{{ item }}"
-  with_items:
-    - libbz2-dev
-    - libreadline-dev
-
 - name: Install dependencies commonly used by Python modules
   become: true
   apt:
@@ -41,3 +15,29 @@
     - pyflakes
     - pylint
     - pep8
+
+- name: Install pip globally
+  become: true
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - python-pip
+    - python3-pip
+
+- name: Install virtualenv globally
+  become: true
+  pip:
+    name: virtualenv
+
+- name: Install virtualenv globally
+  become: true
+  pip:
+    name: virtualenv
+    executable: pip3
+
+- name: Install IPython
+  become: true
+  apt:
+      name: ipython
+      state: present
+

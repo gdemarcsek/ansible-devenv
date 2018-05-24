@@ -1,0 +1,10 @@
+---
+vscode_extensions:
+  - "ms-python.python"
+  - "ms-vscode.cpptools"
+  - "robertohuertasm.vscode-icons"
+  - "eamodio.gitlens"
+  - "ms-vscode.go"
+  - "peterjausovec.vscode-docker"
+  - "rebornix.ruby"
+

@@ -1,76 +1,36 @@
-- hosts: home_desktop, prezi_dell
+- hosts: home_desktop
   gather_subset:
     - "!all"
   roles:
     # Basics
-    - ssh_keys
     - unix_utils
-    - ripgrep
-    - git
-    - monitoring
-    - audio
-    - network
     - ufw
+    - monitoring
     # Terminal env
-    - bashrc
-    - fish
     - keychain
-    - tmux
-    - ssh
     - exa
-    # GUI env
-    - fonts
-    - xmonad
-    - urxvt
-    - lightdm
-    - dunst
-    - xcompose
-    - autocutsel
+    - zsh
+    - bashrc
+    - peco
     # IDE
     - vim
-    - emacs
-    - intellij
-    - zeal
+    - vscode
     # Devenv
     - sh_dev
     - python
-    - nodejs
     - ruby
     - java
-    - scala
     - golang
     - docker
     - easyssh
+    - aws
     - terraform
     - packer
     - mysql_client
-    - jid
     # User apps
-    - chrome
-    - spotify
-    - wavebox
-    - gitter
-    - yubico
     - dropbox
-    - keybase
-    - lastpass
-    - borgbackup
+    - cryptomator
     - tldr
-    - glances
-
-- hosts: prezi_dell
-  roles:
-    - prezi
-    - zoom_us
-    - prey
-    - aws
-  tasks:
-    - include: roles/network/tasks/vpn.yml
-
-- hosts: home_desktop
-  roles:
-    - elixir
-
-- hosts: single_role
-  roles:
-    - "{{ role_to_run | default('') }}"
+    # Other
+    - security
+    - hacking

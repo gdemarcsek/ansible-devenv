@@ -1,0 +1,14 @@
+---
+- name: Add cryptomator ppa
+  become: true
+  apt_repository:
+    repo: ppa:sebastian-stenzel/cryptomator
+    state: present
+    codename: artful
+
+- name: Install cryptomator
+  become: true
+  apt:
+    name: cryptomator
+    update_cache: yes
+

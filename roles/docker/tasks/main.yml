@@ -4,8 +4,8 @@
     name: "{{ item }}"
     install_recommends: false
   with_items:
-    - linux-image-extra-{{ ansible_kernel }}
-    - linux-image-extra-virtual
+      #- linux-image-extra-{{ ansible_kernel }}
+      #- linux-image-extra-virtual
     - apt-transport-https
     - ca-certificates
     - curl

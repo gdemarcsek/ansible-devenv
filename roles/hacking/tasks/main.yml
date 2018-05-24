@@ -1,0 +1,11 @@
+---
+- name: Git clone security related repos
+  git:
+    repo:
+        dst: "/home/{{ ansible_user_id }}/.hacking/"
+    with_items:
+      - "https://github.com/LionSec/katoolin.git"
+      - "https://github.com/swisskyrepo/PayloadsAllTheThings.git"
+      - "https://github.com/Gallopsled/pwntools.git"
+      - "https://github.com/riramar/hsecscan.git"
+

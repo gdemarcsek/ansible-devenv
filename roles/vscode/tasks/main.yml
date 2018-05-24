@@ -1,0 +1,27 @@
+---
+- name: Get MS signing key for vscode ppa
+  become: true
+  apt_key:
+    url: "https://packages.microsoft.com/keys/microsoft.asc"
+
+- name: Add vscode ppa
+  become: true
+  apt_repository:
+    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    state: present
+
+- name: Install vscode
+  become: true
+  apt:
+    name: code
+    state: present
+    update_cache: yes
+
+- name: Get the list of installed VSCode extensions
+  shell: "code --list-extensions | tr '[:upper:]' '[:lower:]'"
+  register: installed_vscode_extensions
+
+
+- name: Install VSCode extensions
+  command: "code --install-extension {{ item }}"
+  with_items: "{{ vscode_extensions | difference(installed_vscode_extensions.stdout_lines) }}"
