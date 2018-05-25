@@ -11,6 +11,7 @@
     - xbacklight
     - feh
     - conky
+    - scrot
 
 - include: roles/dotfiles/tasks/symlink.yml src=.config/i3 force=yes
 
