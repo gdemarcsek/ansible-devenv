@@ -1,4 +1,5 @@
 - name: Install latest golang
+  become: true
   apt:
     name: golang-go
     state: present

@@ -7,12 +7,15 @@
     - ufw
     - monitoring
     - git
+    - security
+    - network
     # Terminal env
     - keychain
     - exa
     - zsh
     - bashrc
     - peco
+    - gnome-terminal
     # IDE
     - vim
     - vscode
@@ -33,7 +36,7 @@
     - cryptomator
     - tldr
     - slack
+    - keepassx
     # Other
-    #- security
     - hacking
     - i3

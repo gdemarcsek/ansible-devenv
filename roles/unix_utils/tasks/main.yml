@@ -14,3 +14,5 @@
     - whois
     - httpie
     - screen
+    - autojump
+    - ncdu
