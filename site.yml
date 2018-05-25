@@ -6,6 +6,7 @@
     - unix_utils
     - ufw
     - monitoring
+    - git
     # Terminal env
     - keychain
     - exa
@@ -31,6 +32,8 @@
     - dropbox
     - cryptomator
     - tldr
+    - slack
     # Other
-    - security
+    #- security
     - hacking
+    - i3
