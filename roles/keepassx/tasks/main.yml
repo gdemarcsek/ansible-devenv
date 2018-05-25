@@ -1,0 +1,6 @@
+---
+- name: Install KeePassX
+  become: true
+  apt:
+    name: keepassx
+    state: latest
