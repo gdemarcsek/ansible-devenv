@@ -1,0 +1,11 @@
+---
+- name: Check if Slack is already installed
+  shell: "snap list | grep -q slack"
+  register: slack_installed
+  ignore_errors: true
+
+- name: Install Slack
+  become: true
+  command: "snap install slack --classic"
+  when: "slack_installed is failed"
+
