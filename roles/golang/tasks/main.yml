@@ -1,18 +1,7 @@
-- name: Fetch Gopher PPA signing key
-  become: true
-  apt_key:
-    keyserver: hkp://keyserver.ubuntu.com:80
-    id: C73998DC9DFEA6DCF1241057308C15A29AD198E9
-
-- name: Add Gopher PPA
-  become: true
-  apt_repository:
-    repo: ppa:gophers/archive
-
-- name: Install Golang {{ golang.version }}
-  become: true
+- name: Install latest golang
   apt:
-    name: golang-{{ golang.version }}
+    name: golang-go
+    state: present
 
 - name: Add golang {{ golang.version }} to PATH
   include: roles/bashrc/tasks/bashrc_template.yml name=golang-path src=templates/golang-path.sh priority=20
