@@ -1,1 +1,0 @@
-PATH="~/.cabal/bin:$PATH"

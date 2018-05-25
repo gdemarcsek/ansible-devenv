@@ -1,5 +1,0 @@
----
-dependencies:
-  - { role: dotfiles }
-  - { role: lightdm }
-  - { role: xprofile }
