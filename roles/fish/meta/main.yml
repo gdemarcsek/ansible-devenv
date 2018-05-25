@@ -1,3 +1,0 @@
-dependencies:
-  - { role: peco }
-  - { role: dotfiles }

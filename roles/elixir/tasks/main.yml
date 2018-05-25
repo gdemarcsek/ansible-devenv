@@ -1,4 +1,0 @@
-- name: Install Elixir
-  become: true
-  apt:
-    name: elixir
