@@ -1,7 +1,10 @@
 - name: Symlink git configuration
-  include: roles/dotfiles/tasks/symlink.yml src=.gitconfig
+  include: roles/dotfiles/tasks/symlink.yml src=.gitconfig force=true
 
 - name: Install git-so-fancy
-  npm:
-    name: diff-so-fancy
-    global: true
+  become: true
+  get_url:
+    url: "https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy"
+    dest: "/usr/local/bin"
+    mode: 0755
+
