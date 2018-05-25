@@ -9,6 +9,7 @@
     - git
     - security
     - network
+    - fonts
     # Terminal env
     - keychain
     - exa
@@ -38,6 +39,7 @@
     - tldr
     - slack
     - keepassx
+    - chrome
     # Other
     - hacking
     - i3
