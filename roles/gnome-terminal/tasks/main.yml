@@ -1,0 +1,9 @@
+---
+- name: Copy dconf export file
+  copy:
+    src: profile.dconf
+    dest: /tmp
+
+- name: Use DConf to configure gnome-terminal
+  shell: "dconf load /org/gnome/terminal/legacy/profiles:/ < /tmp/profile.dconf"
+
