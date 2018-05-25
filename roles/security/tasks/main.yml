@@ -1,0 +1,29 @@
+---
+- name: Install clamav
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "clamav"
+    - "clamav-daemon"
+    - "clamtk"
+
+- name: Install apparmor and auditd
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "auditd"
+    - "apparmor"
+    - "apparmor-profiles"
+    - "apparmor-utils"
+    - "apparmor-profiles-extra"
+
+- name: Make sure that unattended upgrades is installed
+  become: true
+  apt:
+    name: "unattended-upgrades"
+    state: latest
+
