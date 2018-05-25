@@ -8,9 +8,14 @@
 - name: Clone oh-my-zsh
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
-    dest: "/home/{{ ansible_user_id }}/.oh-my-zsh"
+    dest: "~/.oh-my-zsh"
 
 - include: roles/dotfiles/tasks/symlink.yml src=.zshrc force=true
+
+- name: Get ZSH syntax highlight plugin
+  git:
+    repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    dest: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
 - name: Set ZSH as default shell
   become: true
