@@ -16,6 +16,7 @@
     - bashrc
     - peco
     - gnome-terminal
+    - sh_dev
     # IDE
     - vim
     - vscode
