@@ -5,8 +5,10 @@
     # Basics
     - unix_utils
     - ufw
+    - lastpass
     - monitoring
     - git
+    - ssh_keys
     - security
     - network
     - fonts
@@ -40,6 +42,7 @@
     - slack
     - keepassx
     - chrome
+    - signal
     # Other
     - hacking
     - i3

@@ -1,0 +1,11 @@
+---
+- name: Check if Signal is already installed
+  shell: "snap list | grep -q signal-desktop"
+  register: signal_installed
+  ignore_errors: true
+
+- name: Install Signal
+  become: true
+  command: "snap install signal-desktop"
+  when: "signal_installed is failed"
+
