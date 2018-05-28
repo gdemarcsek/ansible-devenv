@@ -1,0 +1,26 @@
+---
+- name: Check if GPG keypair is already present
+  command: "gpg --list-keys {{ gpg_self_key_id }}"
+  register: gpg_key_present
+  ignore_errors: yes
+
+- name: GPG Keypair
+  copy:
+    content: "{{ lookup('lastpass', 'GPG', field='notes') }}"
+    dest: /tmp/gpg_private.tmp
+    mode: 0600
+  when: "gpg_key_present is failed"
+
+- name: Import GPG keypair
+  command: "gpg --allow-secret-key-import --import /tmp/gpg_private.tmp"
+  when: "gpg_key_present is failed"
+
+- name: Clean up
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "/tmp/gpg_private.tmp"
+  when: "gpg_key_present is failed"
+
+
