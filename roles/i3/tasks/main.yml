@@ -12,6 +12,7 @@
     - feh
     - conky
     - scrot
+    - ffmpeg
 
 - include: roles/dotfiles/tasks/symlink.yml src=.config/i3 force=yes
 
