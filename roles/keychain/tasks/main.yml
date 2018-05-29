@@ -2,6 +2,11 @@
   become: true
   apt:
     name: keychain
+ 
+- name: Install ssh askpass
+  become: true
+  apt:
+    name: "ssh-askpass"
 
 - name: Initialize keychain on bash startup
   include: roles/bashrc/tasks/bashrc.yml name=keychain src=files/keychain.sh priority=10
