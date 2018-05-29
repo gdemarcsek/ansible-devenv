@@ -3,14 +3,20 @@
     path: ~/.ssh
     state: directory
 
+- name: Check if SSH key is already present
+  shell: "ssh-keygen -lf ~/.ssh/id_rsa | awk '{print $2}' 2>/dev/null"
+  register: id_rsa_check_result
+
 - name: SSH Private key
   copy:
     content: "{{ lookup('lastpass', 'SSH - private', field='notes') }}"
     dest: ~/.ssh/id_rsa
     mode: 0600
+  when: "id_rsa_check_result.stdout != ssh_key_fingerprint"
 
 - name: SSH Public key
   copy:
     content: "{{ lookup('lastpass', 'SSH - public', field='notes') }}"
     dest: ~/.ssh/id_rsa.pub
     mode: 0600
+  when: "id_rsa_check_result.stdout != ssh_key_fingerprint"
