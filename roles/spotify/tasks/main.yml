@@ -1,16 +1,11 @@
-- name: Add Spotify repository signing key
-  become: true
-  apt_key:
-    keyserver: hkp://keyserver.ubuntu.com:80
-    id: 0DF731E45CE24F27EEEB1450EFDC8610341D9410
-
-- name: Add Spotify apt source
-  become: true
-  apt_repository:
-    repo: deb http://repository.spotify.com stable non-free
-    state: present
+---
+- name: Check if Spotify is already installed
+  shell: "snap list | grep -q spotify"
+  register: spotify_installed
+  ignore_errors: true
 
 - name: Install Spotify
   become: true
-  apt:
-    name: spotify-client
+  command: "snap install spotify"
+  when: "spotify_installed is failed"
+
