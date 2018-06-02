@@ -1,0 +1,24 @@
+---
+- name: Create ~/onepassword
+  file:
+    path: ~/onepassword
+    state: directory
+
+- name: Download zip
+  get_url:
+    url: https://cache.agilebits.com/dist/1P/op/pkg/{{ op_cli_version }}/op_linux_amd64_{{ op_cli_version }}.zip
+    dest: ~/onepassword/op-cli-{{ op_cli_version }}.zip
+
+- name: Extract zip
+  unarchive:
+    src: ~/onepassword/op-cli-{{ op_cli_version }}.zip
+    dest: ~/onepassword/
+
+- name: Install binary
+  become: yes
+  copy:
+    remote_src: yes
+    src: "{{ ansible_env.HOME }}/onepassword/op"
+    dest: /usr/local/bin/op
+    mode: 0755
+ 
