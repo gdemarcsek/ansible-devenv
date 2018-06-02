@@ -21,4 +21,4 @@
     src: "{{ ansible_env.HOME }}/onepassword/op"
     dest: /usr/local/bin/op
     mode: 0755
- 
+

@@ -5,7 +5,6 @@
     # Basics
     - unix_utils
     - ufw
-    - lastpass
     - onepassword
     - monitoring
     - git

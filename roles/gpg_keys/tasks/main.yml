@@ -6,7 +6,7 @@
 
 - name: GPG Keypair
   copy:
-    content: "{{ lookup('lastpass', 'GPG', field='notes') }}"
+    content: "{{ lookup('onepassword_raw', 'GPG').details.notesPlain }}"
     dest: /tmp/gpg_private.tmp
     mode: 0600
   when: "gpg_key_present is failed"
