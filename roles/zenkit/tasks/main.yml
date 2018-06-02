@@ -1,0 +1,11 @@
+---
+- name: Check if Zenkit is already isntalled
+  shell: "snap list | grep -q zenkit"
+  changed_when: False
+  register: zenkit_installed
+  ignore_errors: yes
+
+- name: Install Zenkit
+  command: "snap install zenkit"
+  become: true
+  when: "zenkit_installed is failed"
