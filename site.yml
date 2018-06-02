@@ -6,6 +6,7 @@
     - unix_utils
     - ufw
     - lastpass
+    - onepassword
     - monitoring
     - git
     - ssh_keys
@@ -44,6 +45,7 @@
     - keepassx
     - chrome
     - signal
+    - zenkit
     # Other
     - hacking
     - i3
