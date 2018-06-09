@@ -25,3 +25,5 @@
 - name: Install VSCode extensions
   command: "code --install-extension {{ item }}"
   with_items: "{{ vscode_extensions | difference(installed_vscode_extensions.stdout_lines) }}"
+
+- include: roles/dotfiles/tasks/symlink.yml src=.config/Code/User/settings.json force=yes
