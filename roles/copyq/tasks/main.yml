@@ -1,0 +1,12 @@
+---
+- name: Add CopyQ PPA
+  apt_repository:
+    name: ppa:hluk/copyq
+    state: present
+  become: yes
+
+- name: Install CopyQ
+  apt:
+    name: copyq
+    state: present
+
