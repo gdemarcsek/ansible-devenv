@@ -7,4 +7,5 @@ vscode_extensions:
   - "ms-vscode.go"
   - "peterjausovec.vscode-docker"
   - "rebornix.ruby"
-
+  - "vscoss.vscode-ansible"
+  - "Pendrica.chef"
